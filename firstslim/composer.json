@@ -1,5 +1,6 @@
 {
 	"require": {
-		"slim/slim": "4.0.0-beta"
+		"slim/slim": "4.0.0-beta",
+		"slim/psr7": "^0.3.0"
 	}
 }
