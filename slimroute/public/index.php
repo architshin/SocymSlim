@@ -14,4 +14,14 @@ $app->post("/slimroute/public/helloPost",
 	}
 );
 
+$app->post("/slimroute/public/showParams",
+	function(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+		$postParams = $request->getParsedBody();
+		$name = $postParams["name"];
+		$age = $postParams["age"];
+		print("送信されたパラメータ: 名前は".$name."で年齢が".$age);
+		return $response;
+	}
+);
+
 $app->run();
