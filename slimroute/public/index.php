@@ -43,4 +43,13 @@ $app->any("/slimroute/public/helloAny",
 	}
 );
 
+$app->map(["POST", "GET"], "/slimroute/public/helloMap",
+	function(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+		$content = "POSTまたはGETメソッドでHello World!";
+		$responseBody = $response->getBody();
+		$responseBody->write($content);
+		return $response;
+	}
+);
+
 $app->run();
