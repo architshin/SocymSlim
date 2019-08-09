@@ -33,4 +33,14 @@ $app->get("/slimroute/public/writeBody",
 	}
 );
 
+$app->any("/slimroute/public/helloAny",
+	function(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+		$method = $request->getMethod();
+		$content = $method."メソッドでHello World!";
+		$responseBody = $response->getBody();
+		$responseBody->write($content);
+		return $response;
+	}
+);
+
 $app->run();
