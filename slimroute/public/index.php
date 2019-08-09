@@ -24,4 +24,13 @@ $app->post("/slimroute/public/showParams",
 	}
 );
 
+$app->get("/slimroute/public/writeBody",
+	function(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+		$content = "レスポンスボディに文字列を格納";
+		$responseBody = $response->getBody();
+		$responseBody->write($content);
+		return $response;
+	}
+);
+
 $app->run();
