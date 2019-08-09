@@ -46,3 +46,13 @@ $app->map(["POST", "GET"], "/slimroute/public/helloMap",
 		return $response;
 	}
 );
+
+$app->get("/slimroute/public/showDetail/{id}",
+	function(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+		$id = $args["id"];
+		$content = "IDが".$id."の詳細です!";
+		$responseBody = $response->getBody();
+		$responseBody->write($content);
+		return $response;
+	}
+);
