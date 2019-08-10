@@ -59,3 +59,19 @@ $app->get("/slimroute/public/showDetail/{id}",
 
 $app->redirect("/slimroute/public/google", "https://www.google.com/");
 $app->redirect("/slimroute/public/hey", "/slimroute/public/helloAny", 301);
+
+$app->any("/slimroute/public/redirectOrNot/{flg}",
+	function(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+		$flg = $args["flg"];
+		if($flg == 0) {
+			$response = $response->withHeader("Location", "https://www.google.com/");
+			$response = $response->withStatus(302);
+		}
+		else {
+			$content = "リダイレクトは行いません";
+			$responseBody = $response->getBody();
+			$responseBody->write($content);
+		}
+		return $response;
+	}
+);
