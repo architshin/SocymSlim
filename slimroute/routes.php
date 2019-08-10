@@ -56,3 +56,6 @@ $app->get("/slimroute/public/showDetail/{id}",
 		return $response;
 	}
 );
+
+$app->redirect("/slimroute/public/google", "https://www.google.com/");
+$app->redirect("/slimroute/public/hey", "/slimroute/public/helloAny", 301);
