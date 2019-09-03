@@ -24,3 +24,12 @@ $app->any("/helloTwig",
 		return $response;
 	}
 );
+
+$app->any("/helloWithVals",
+	function(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+		$assign["name"] = "夏目";
+		$twig = Twig::create($_SERVER["DOCUMENT_ROOT"]."/slimview/templates");
+		$response = $twig->render($response, "helloWithVals.html", $assign);
+		return $response;
+	}
+);
