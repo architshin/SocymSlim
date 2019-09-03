@@ -1,6 +1,7 @@
 <?php
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use Slim\Views\Twig;
 
 $app->setBasePath("/slimview/public");
 
@@ -12,6 +13,14 @@ $app->any("/getDataByJSON/{id}",
 		$responseBody = $response->getBody();
 		$responseBody->write($jsonData);
 		$response = $response->withHeader("Content-Type", "application/json");
+		return $response;
+	}
+);
+
+$app->any("/helloTwig",
+	function(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+		$twig = Twig::create($_SERVER["DOCUMENT_ROOT"]."/slimview/templates");
+		$response = $twig->render($response, "hello.html");
 		return $response;
 	}
 );
