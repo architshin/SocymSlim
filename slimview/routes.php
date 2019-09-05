@@ -56,3 +56,12 @@ $app->any("/useFilter",
 		return $response;
 	}
 );
+
+$app->any("/ifStatement",
+	function(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+		$assign["rand"] = rand(1, 3);
+		$twig = Twig::create($_SERVER["DOCUMENT_ROOT"]."/slimview/templates");
+		$response = $twig->render($response, "ifStatement.html", $assign);
+		return $response;
+	}
+);
