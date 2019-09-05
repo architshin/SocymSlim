@@ -3,6 +3,8 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Slim\Views\Twig;
 
+require_once("DotAccessData.php");
+
 $app->setBasePath("/slimview/public");
 
 $app->any("/getDataByJSON/{id}",
@@ -30,6 +32,18 @@ $app->any("/helloWithVals",
 		$assign["name"] = "夏目";
 		$twig = Twig::create($_SERVER["DOCUMENT_ROOT"]."/slimview/templates");
 		$response = $twig->render($response, "helloWithVals.html", $assign);
+		return $response;
+	}
+);
+
+$app->any("/dotAccess",
+	function(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+		$itemData = ["name"=>"黒ラベル", "price"=>260];
+		$assign["item"] = $itemData;
+		$dotAccessData = new DotAccessData();
+		$assign["dotAccessData"] = $dotAccessData;
+		$twig = Twig::create($_SERVER["DOCUMENT_ROOT"]."/slimview/templates");
+		$response = $twig->render($response, "dotAccess.html", $assign);
 		return $response;
 	}
 );
