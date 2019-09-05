@@ -47,3 +47,12 @@ $app->any("/dotAccess",
 		return $response;
 	}
 );
+
+$app->any("/useFilter",
+	function(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+		$assign["msg"] = "こんにちは。\nさようなら。";
+		$twig = Twig::create($_SERVER["DOCUMENT_ROOT"]."/slimview/templates");
+		$response = $twig->render($response, "useFilter.html", $assign);
+		return $response;
+	}
+);
