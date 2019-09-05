@@ -65,3 +65,14 @@ $app->any("/ifStatement",
 		return $response;
 	}
 );
+
+$app->any("/forStatement",
+	function(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+		$validationMsgs[] = "お名前の入力は必須です。";
+		$validationMsgs[] = "年齢は数値で入力してください。";
+		$assign["validationMsgs"] = $validationMsgs;
+		$twig = Twig::create($_SERVER["DOCUMENT_ROOT"]."/slimview/templates");
+		$response = $twig->render($response, "forStatement.html", $assign);
+		return $response;
+	}
+);
