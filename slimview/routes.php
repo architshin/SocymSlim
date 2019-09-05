@@ -76,3 +76,13 @@ $app->any("/forStatement",
 		return $response;
 	}
 );
+
+$app->any("/forStatement2",
+	function(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+		$resultList = ["A"=>"田中", "B"=>"中野", "C"=>"野村"];
+		$assign["resultList"] = $resultList;
+		$twig = Twig::create($_SERVER["DOCUMENT_ROOT"]."/slimview/templates");
+		$response = $twig->render($response, "forStatement2.html", $assign);
+		return $response;
+	}
+);
