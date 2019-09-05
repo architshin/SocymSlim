@@ -86,3 +86,13 @@ $app->any("/forStatement2",
 		return $response;
 	}
 );
+
+$app->any("/loopVals",
+	function(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+		$resultList = ["A"=>"田中", "B"=>"中野", "C"=>"野村", "D"=>"村井", "E"=>"井田"];
+		$assign["resultList"] = $resultList;
+		$twig = Twig::create($_SERVER["DOCUMENT_ROOT"]."/slimview/templates");
+		$response = $twig->render($response, "loopVals.html", $assign);
+		return $response;
+	}
+);
