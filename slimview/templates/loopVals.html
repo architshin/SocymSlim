@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>ループ変数</title>
+</head>
+	<body>
+		<ul>
+			{% for key, value in resultList %}
+			<li>
+				{% if loop.first %}
+				ループの始まりです。<br>
+				{% endif %}
+				{{loop.index}}回目: {{key}}は{{value}}です。残り回数は{{loop.revindex0}}回です。
+				{% if loop.last %}
+				<br>ループの終わりです。
+				{% endif %}
+			</li>
+			{% endfor %}
+		</ul>
+	</body>
+</html>
