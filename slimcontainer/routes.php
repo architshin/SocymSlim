@@ -11,3 +11,13 @@ $app->any("/helloWithContainer",
 		return $response;
 	}
 );
+$app->any("/writeToLog",
+	function(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+		$logger = $this->get("logger");
+		$logger->info("ログに書き出しました。"); 
+		$content = "ログへの書き出し実験";
+		$responseBody = $response->getBody();
+		$responseBody->write($content);
+		return $response;
+	}
+);
