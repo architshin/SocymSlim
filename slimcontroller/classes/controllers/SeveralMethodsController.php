@@ -13,6 +13,7 @@ class SeveralMethodsController
 		$responseBody->write($content);
 		return $response;
 	}
+	
 	public function showSecond(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
 	{
 		$content = "コントローラクラスのshowSecondメソッドでHello World!";
