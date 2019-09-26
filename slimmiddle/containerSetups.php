@@ -10,4 +10,12 @@ $container->set("twig",
 		return $twig;
 	}
 );
+$container->set("logger",
+	function() {
+		$logger = new Logger("slimcontainer");
+		$fileHandler = new StreamHandler($_SERVER["DOCUMENT_ROOT"]."/slimmiddle/logs/app.log");
+		$logger->pushHandler($fileHandler);
+		return $logger;
+	}
+);
 AppFactory::setContainer($container);
