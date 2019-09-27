@@ -6,19 +6,15 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-class RecordIPAddress implements MiddlewareInterface
+class RecordIPAddressBefore implements MiddlewareInterface
 {
 	public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
 	{
-		$response = $handler->handle($request);
-
 		$serverParams = $request->getServerParams();
 		$ipAddress = $serverParams["REMOTE_ADDR"];
 		$path = $serverParams["REQUEST_URI"];
-		$content = "<p>IPアドレスは".$ipAddress."でパスは".$path."</p>";
-		$responseBody = $response->getBody();
-		$responseBody->write($content);
-		
+		print("<p>IPアドレスは".$ipAddress."でパスは".$path."</p>");
+		$response = $handler->handle($request);
 		return $response;
 	}
 }
