@@ -14,7 +14,7 @@ class SlimMiddleController
 		$this->container = $container;
 	}
 
-	public function doRecordIPAddress(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+	public function middlewareTest(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
 	{
 		$content = "<p>ミドルウェアのテスト。こちらはリクエスト処理。</p>";
 		$responseBody = $response->getBody();
