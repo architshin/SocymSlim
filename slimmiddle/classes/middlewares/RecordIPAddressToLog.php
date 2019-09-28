@@ -5,15 +5,26 @@ use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Psr\Container\ContainerInterface;
 
-class RecordIPAddressBefore implements MiddlewareInterface
+class RecordIPAddressToLog implements MiddlewareInterface
 {
+	private $container;
+
+	public function __construct(ContainerInterface $container)
+	{
+		$this->container = $container;
+	}
+
 	public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
 	{
 		$serverParams = $request->getServerParams();
 		$ipAddress = $serverParams["REMOTE_ADDR"];
 		$path = $serverParams["REQUEST_URI"];
-		print("<p>IPアドレスは".$ipAddress."でパスは".$path."</p>");
+		$content = "IPアドレスは".$ipAddress."でパスは".$path;
+		$logger = $this->container->get("logger");
+		$logger->info($content);
+
 		$response = $handler->handle($request);
 		return $response;
 	}

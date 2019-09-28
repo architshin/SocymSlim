@@ -2,6 +2,8 @@
 use DI\Container;
 use Slim\Factory\AppFactory;
 use Slim\Views\Twig;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
 
 $container = new Container();
 $container->set("twig",
@@ -12,7 +14,7 @@ $container->set("twig",
 );
 $container->set("logger",
 	function() {
-		$logger = new Logger("slimcontainer");
+		$logger = new Logger("slimmiddle");
 		$fileHandler = new StreamHandler($_SERVER["DOCUMENT_ROOT"]."/slimmiddle/logs/app.log");
 		$logger->pushHandler($fileHandler);
 		return $logger;
