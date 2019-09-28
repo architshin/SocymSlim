@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>TwigExtension</title>
+</head>
+	<body>
+		<p>url_for: {{url_for("dummy")}}</p>
+		<p>url_for: {{url_for("dummyWithParam", {"id":"45"})}}</p>
+		<p>full_url_for: {{full_url_for("dummy")}}</p>
+		<p>full_url_for: {{full_url_for("dummyWithParam", {"id":"45"})}}</p>
+		<p>is_current_url: {{is_current_url("dummy")}}</p>
+		<p>current_url: {{current_url()}}</p>
+		<p>get_uri: {{get_uri()}}</p>
+	</body>
+</html>

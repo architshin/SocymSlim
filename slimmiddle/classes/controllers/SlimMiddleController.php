@@ -21,4 +21,11 @@ class SlimMiddleController
 		$responseBody->write($content);
 		return $response;
 	}
+
+	public function useTwigExtension(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+	{
+		$twig = $this->container->get("view");
+		$response = $twig->render($response, "withTwigExtension.html");
+		return $response;
+	}
 }

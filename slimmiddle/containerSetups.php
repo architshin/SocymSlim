@@ -6,7 +6,7 @@ use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
 $container = new Container();
-$container->set("twig",
+$container->set("view",
 	function() {
 		$twig = Twig::create($_SERVER["DOCUMENT_ROOT"]."/slimmiddle/templates");
 		return $twig;

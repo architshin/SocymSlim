@@ -12,3 +12,6 @@ $app->any("/doRecordIPAddressBefore", SlimMiddleController::class.":middlewareTe
 $app->any("/beforeAndAfter", SlimMiddleController::class.":middlewareTest")->add(new BeforeAndAfter());
 $app->any("/nested", SlimMiddleController::class.":middlewareTest")->add(new BeforeAndAfter())->add(new Outer());
 $app->any("/doRecordIPAddressToLog", SlimMiddleController::class.":middlewareTest")->add(new RecordIPAddressToLog($container));
+$app->any("/dummyPath", SlimMiddleController::class.":middlewareTest")->setName("dummy");
+$app->any("/dummyPathWithParam/{id}", SlimMiddleController::class.":middlewareTest")->setName("dummyWithParam");
+$app->any("/useTwigExtension", SlimMiddleController::class.":useTwigExtension");
