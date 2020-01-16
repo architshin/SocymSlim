@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2ad3692e90876e2e7017c649ee905e3d",
+    "content-hash": "178ef30ff60ce6a4ffb72f4bd513cf42",
     "packages": [
         {
             "name": "fig/http-message-util",
@@ -401,21 +401,21 @@
         },
         {
             "name": "slim/psr7",
-            "version": "0.5.0",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slimphp/Slim-Psr7.git",
-                "reference": "99ad31f503584bc7c5a36cb0304120f1bce8983d"
+                "reference": "7ca5b5d96687b7c563238715cc80b12675d8b895"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slimphp/Slim-Psr7/zipball/99ad31f503584bc7c5a36cb0304120f1bce8983d",
-                "reference": "99ad31f503584bc7c5a36cb0304120f1bce8983d",
+                "url": "https://api.github.com/repos/slimphp/Slim-Psr7/zipball/7ca5b5d96687b7c563238715cc80b12675d8b895",
+                "reference": "7ca5b5d96687b7c563238715cc80b12675d8b895",
                 "shasum": ""
             },
             "require": {
                 "fig/http-message-util": "^1.1.2",
-                "php": "^7.1",
+                "php": "^7.2",
                 "psr/http-factory": "^1.0",
                 "psr/http-message": "^1.0",
                 "ralouphie/getallheaders": "^3"
@@ -424,12 +424,13 @@
                 "psr/http-message-implementation": "1.0"
             },
             "require-dev": {
+                "adriansuter/php-autoload-override": "^1.0",
                 "ext-json": "*",
-                "http-interop/http-factory-tests": "^0.5.0",
+                "http-interop/http-factory-tests": "^0.6.0",
                 "php-http/psr7-integration-tests": "dev-master",
-                "phpstan/phpstan": "^0.10",
-                "phpunit/phpunit": "^6.0|^7.0",
-                "squizlabs/php_codesniffer": "^3.3"
+                "phpstan/phpstan": "^0.12",
+                "phpunit/phpunit": "^8.5",
+                "squizlabs/php_codesniffer": "^3.5"
             },
             "type": "library",
             "autoload": {
@@ -470,26 +471,26 @@
                 "psr-7",
                 "psr7"
             ],
-            "time": "2019-08-18T16:50:29+00:00"
+            "time": "2020-01-04T23:05:43+00:00"
         },
         {
             "name": "slim/slim",
-            "version": "4.2.0",
+            "version": "4.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slimphp/Slim.git",
-                "reference": "378abc6f8fe43dc7a73537259da728cb27a64332"
+                "reference": "207acac048652a35d4762a737d59e317aedc02df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slimphp/Slim/zipball/378abc6f8fe43dc7a73537259da728cb27a64332",
-                "reference": "378abc6f8fe43dc7a73537259da728cb27a64332",
+                "url": "https://api.github.com/repos/slimphp/Slim/zipball/207acac048652a35d4762a737d59e317aedc02df",
+                "reference": "207acac048652a35d4762a737d59e317aedc02df",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "nikic/fast-route": "^1.3",
-                "php": "^7.1",
+                "php": "^7.2",
                 "psr/container": "^1.0",
                 "psr/http-factory": "^1.0",
                 "psr/http-message": "^1.0",
@@ -497,29 +498,30 @@
                 "psr/http-server-middleware": "^1.0"
             },
             "require-dev": {
+                "adriansuter/php-autoload-override": "^1.0",
                 "ext-simplexml": "*",
                 "guzzlehttp/psr7": "^1.5",
                 "http-interop/http-factory-guzzle": "^1.0",
+                "laminas/laminas-diactoros": "^2.1",
                 "nyholm/psr7": "^1.1",
                 "nyholm/psr7-server": "^0.3.0",
-                "phpspec/prophecy": "^1.8",
+                "phpspec/prophecy": "^1.10",
                 "phpstan/phpstan": "^0.11.5",
-                "phpunit/phpunit": "^7.5",
+                "phpunit/phpunit": "^8.5",
                 "slim/http": "^0.7",
                 "slim/psr7": "^0.3",
-                "squizlabs/php_codesniffer": "^3.4.2",
-                "zendframework/zend-diactoros": "^2.1"
+                "squizlabs/php_codesniffer": "^3.5"
             },
             "suggest": {
                 "ext-simplexml": "Needed to support XML format in BodyParsingMiddleware",
                 "ext-xml": "Needed to support XML format in BodyParsingMiddleware",
-                "slim/psr7": "Slim PSR-7 implementation. See http://www.slimframework.com/docs/v4/start/installation.html for more information."
+                "php-di/php-di": "PHP-DI is the recommended container library to be used with Slim",
+                "slim/psr7": "Slim PSR-7 implementation. See https://www.slimframework.com/docs/v4/start/installation.html for more information."
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Slim\\": "Slim",
-                    "Slim\\Tests\\": "tests"
+                    "Slim\\": "Slim"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -554,39 +556,40 @@
                 }
             ],
             "description": "Slim is a PHP micro framework that helps you quickly write simple yet powerful web applications and APIs",
-            "homepage": "https://slimframework.com",
+            "homepage": "https://www.slimframework.com",
             "keywords": [
                 "api",
                 "framework",
                 "micro",
                 "router"
             ],
-            "time": "2019-08-20T19:11:25+00:00"
+            "time": "2020-01-05T03:51:47+00:00"
         },
         {
             "name": "slim/twig-view",
-            "version": "3.0.0-beta",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slimphp/Twig-View.git",
-                "reference": "f4601348d445cfc96f223c5be9a2c8eda80375fe"
+                "reference": "46bc497bada017c24e6736f80af1baa8c6cc71d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slimphp/Twig-View/zipball/f4601348d445cfc96f223c5be9a2c8eda80375fe",
-                "reference": "f4601348d445cfc96f223c5be9a2c8eda80375fe",
+                "url": "https://api.github.com/repos/slimphp/Twig-View/zipball/46bc497bada017c24e6736f80af1baa8c6cc71d3",
+                "reference": "46bc497bada017c24e6736f80af1baa8c6cc71d3",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1",
                 "psr/http-message": "^1.0",
-                "twig/twig": "^2.8"
+                "slim/slim": "^4.0",
+                "twig/twig": "^2.8|^3.0"
             },
             "require-dev": {
-                "php-di/php-di": "^6.0",
+                "phpstan/phpstan": "^0.11.15",
                 "phpunit/phpunit": "^7.5",
                 "psr/http-factory": "^1.0",
-                "slim/slim": "^4.0"
+                "squizlabs/php_codesniffer": "^3.4.2"
             },
             "type": "library",
             "autoload": {
@@ -610,8 +613,8 @@
                     "homepage": "http://www.lgse.com"
                 }
             ],
-            "description": "Slim Framework 4 view helper built on top of the Twig 2 templating component",
-            "homepage": "http://slimframework.com",
+            "description": "Slim Framework 4 view helper built on top of the Twig (2 and 3) templating component",
+            "homepage": "https://www.slimframework.com",
             "keywords": [
                 "framework",
                 "slim",
@@ -619,7 +622,7 @@
                 "twig",
                 "view"
             ],
-            "time": "2019-08-20T00:55:36+00:00"
+            "time": "2019-12-02T23:40:24+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -809,9 +812,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "slim/twig-view": 10
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
