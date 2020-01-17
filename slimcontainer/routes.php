@@ -11,6 +11,13 @@ $app->any("/helloWithContainer",
 		return $response;
 	}
 );
+$app->any("/newNote",
+	function(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+		$name = "中田";
+		$note = $this->call("note", [$name]);
+		return $response;
+	}
+);
 $app->any("/writeToLog",
 	function(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
 		$logger = $this->get("logger");
