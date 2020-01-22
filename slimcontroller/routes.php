@@ -1,10 +1,10 @@
 <?php
-use SocymSlim\SlimController\controllers\HelloController;
-use SocymSlim\SlimController\controllers\SeveralMethodsController;
+use SocymSlim\SlimController\controllers\SeveralHelloController;
+use SocymSlim\SlimController\controllers\OneHelloController;
 use SocymSlim\SlimController\controllers\ConstructorController;
 
 $app->setBasePath("/slimcontroller/public");
-$app->any("/helloWithInvokableController", HelloController::class);
-$app->any("/several/showFirst", SeveralMethodsController::class.":showFirst");
-$app->any("/several/showSecond", SeveralMethodsController::class.":showSecond");
+$app->any("/several/showFirst", SeveralHelloController::class.":showFirst");
+$app->any("/several/showSecond", SeveralHelloController::class.":showSecond");
+$app->any("/one/sayHello", OneHelloController::class);
 $app->any("/constructor/helloWithContainer", ConstructorController::class.":helloWithContainer");

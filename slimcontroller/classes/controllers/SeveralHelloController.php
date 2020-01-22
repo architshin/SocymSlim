@@ -4,7 +4,7 @@ namespace SocymSlim\SlimController\controllers;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
-class SeveralMethodsController
+class SeveralHelloController
 {
 	public function showFirst(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
 	{

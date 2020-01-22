@@ -4,7 +4,7 @@ namespace SocymSlim\SlimController\controllers;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
-class HelloController
+class OneHelloController
 {
 	public function __invoke(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
 	{

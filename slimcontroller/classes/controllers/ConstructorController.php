@@ -17,7 +17,7 @@ class ConstructorController
 	public function helloWithContainer(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
 	{
 		$assign["name"] = "コントローラ";
-		$twig = $this->container->get("twig");
+		$twig = $this->container->get("view");
 		$response = $twig->render($response, "helloWithVals.html", $assign);
 		return $response;
 	}
